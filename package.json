@@ -1,0 +1,23 @@
+{
+  "name": "chapitre06",
+  "version": "1.0.0",
+  "description": "Exemples du cours pour le chapitre 06",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index",
+    "start": "node index" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alain-clg/chapitre06.git"
+  },
+  "author": "Alain Pilon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alain-clg/chapitre06/issues"
+  },
+  "homepage": "https://github.com/alain-clg/chapitre06#readme",
+  "dependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
