@@ -5,9 +5,7 @@ const fs = require('fs');
 const PORT = process.env.PORT || 8000;
 let serveur = http.createServer((requete, reponse) => {
     console.log(requete.url);
-    if (requete.url === '/favicon.ico') {
-        // on ne fait rien...
-    } else if (requete.url === '/') {
+    if (requete.url === '/') {
         let fileName = path.join(__dirname, 'pagesWeb', 'index.html');
         affichePageWeb(fileName, reponse);
     } else {
@@ -18,9 +16,9 @@ let serveur = http.createServer((requete, reponse) => {
 serveur.listen(PORT, () => console.log('Le service est demarre sur le port=', PORT));
 
 function affichePageWeb(fileName, reponse) {
-    console.log('dans fonction affichePageWeb fileName=', fileName);
+    // console.log('dans fonction affichePageWeb fileName=', fileName);
     let typeFichier = path.extname(fileName);
-    console.log('type de fichier=', typeFichier);
+    // console.log('type de fichier=', typeFichier);
     let typeContenu = 'text/html';
     switch (typeFichier) {
         case '.css':
@@ -44,7 +42,11 @@ function affichePageWeb(fileName, reponse) {
         case '.svg':
             typeContenu = 'image/svg+xml';
             break;  
+        case '.ico':
+            typeContenu = 'image/x-icon';
+            break;
     }
+    console.log('trace passe ici ***********');
     fs.readFile( fileName, (err, contenu) => {
         if (err) {
             if (err.code == 'ENOENT') { // fichier non trouve
